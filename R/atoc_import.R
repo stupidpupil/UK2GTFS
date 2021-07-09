@@ -415,7 +415,8 @@ importMCA <- function(file,
   acts <- c(
     "T", # Stops to take up and set down passengers
     "D", # Stops to set down passengers
-    "U" # Stops to take up passengers
+    "U", # Stops to take up passengers,
+    "R"  # Request-only stops
   )
 
   LI <- LI[sapply(strsplit(LI$Activity, " "), function(x) {
