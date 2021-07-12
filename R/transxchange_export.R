@@ -163,6 +163,7 @@ transxchange_export <- function(obj, run_debug = TRUE,
 
   JourneyPatternSections$RunTime <- clean_times(JourneyPatternSections$RunTime)
   JourneyPatternSections$To.WaitTime <- clean_times(JourneyPatternSections$To.WaitTime)
+  JourneyPatternSections$From.WaitTime <- clean_times(JourneyPatternSections$From.WaitTime)
 
 
   # stops -------------------------------------------------------------------
