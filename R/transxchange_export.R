@@ -29,6 +29,10 @@ transxchange_export <- function(obj, run_debug = TRUE,
   # VehicleJourneysTimingLinks <- obj[["VehicleJourneysTimingLinks"]]
   ServicedOrganisations <- obj[["ServicedOrganisations"]]
 
+  VehicleJourneys$DaysOfWeek <- ifelse(VehicleJourneys$DaysOfWeek == "NA", NA_character_, VehicleJourneys$DaysOfWeek)
+  VehicleJourneys$DaysOfWeek <- 
+    ifelse(is.na(VehicleJourneys$DaysOfWeek) & VehicleJourneys$HolidaysOnly == "HolidaysOnly", "HolidaysOnly", VehicleJourneys$DaysOfWeek)
+
   # select holidays to use
   if (scotland) {
     cal <- cal[cal$Scotland, ]
@@ -71,7 +75,6 @@ transxchange_export <- function(obj, run_debug = TRUE,
       return(NULL)
     }
   }
-
 
 
   # Split Service Organisations
