@@ -1,7 +1,22 @@
-# Plotting help
-
+#' Make stops into an SF object
+#'
+#' Make stops.txt into a sf data frame for plotting
+#'
+#' @param gtfs a gtfs object
+#' @return sf data frame of points
+#' @export
 gtfs_stops_sf <- function(gtfs){
   stops <- gtfs$stops
+
+  if(class(stops$stop_lon) != "numeric"){
+    message("Converting stop_lon to numeric")
+    stops$stop_lon <- as.numeric(stops$stop_lon)
+  }
+
+  if(class(stops$stop_lat) != "numeric"){
+    message("Converting stop_lat to numeric")
+    stops$stop_lat <- as.numeric(stops$stop_lat)
+  }
 
   if(anyNA(stops$stop_lon) | anyNA(stops$stop_lon)){
     message("Stops with missing lat/lng removed")
@@ -15,7 +30,13 @@ gtfs_stops_sf <- function(gtfs){
 
 }
 
-
+#' Make trips into an SF object
+#'
+#' Make trips.txt into a sf data frame for plotting
+#'
+#' @param gtfs a gtfs object
+#' @return sf data frame of lines
+#' @export
 gtfs_trips_sf <- function(gtfs){
   stop_times <- gtfs$stop_times
   stops <- gtfs$stops
