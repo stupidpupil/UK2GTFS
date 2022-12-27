@@ -27,6 +27,8 @@ Imports:
   geodist,
   iotools,
   jsonlite,
+  purrr (>= 1.0),
+  digest,
   lubridate,
   zip,
   pbapply,
@@ -38,4 +40,4 @@ Suggests:
     rmarkdown,
     testthat
 VignetteBuilder: knitr
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.3
